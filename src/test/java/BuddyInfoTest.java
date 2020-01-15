@@ -1,3 +1,4 @@
+import addressbook.BuddyInfo;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,6 +13,13 @@ public class BuddyInfoTest {
         assertNull(buddy.getBirthday());
         assertNull(buddy.getCompany());
         assertNull(buddy.getPhoneNumber());
+    }
+
+    @Test
+    public void idBuddyTest() {
+        BuddyInfo buddy = new BuddyInfo("Simon", null, null, null, null);
+
+        assertEquals("Simon", buddy.getName());
     }
 
     @Test
@@ -64,6 +72,6 @@ public class BuddyInfoTest {
     public void toStringBuddyTest() {
         BuddyInfo buddy = new BuddyInfo("Simon", "123 Main St.", "1/2/34", "Jo Co.", "1234567890");
 
-        assertEquals("BuddyInfo{name='Simon', address='123 Main St.', birthday='1/2/34', company='Jo Co.', phoneNumber='1234567890'}", buddy.toString());
+        assertEquals("addressbook.BuddyInfo{name='Simon', address='123 Main St.', birthday='1/2/34', company='Jo Co.', phoneNumber='1234567890'}", buddy.toString());
     }
 }

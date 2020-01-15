@@ -1,4 +1,14 @@
+package addressbook;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+
+@Entity
 public class BuddyInfo {
+
+    @Id
+    @GeneratedValue
+    private Long id;
     private String name;
     private String address;
     private String birthday;
@@ -24,13 +34,21 @@ public class BuddyInfo {
 
     @Override
     public String toString() {
-        return "BuddyInfo{" +
+        return "addressbook.BuddyInfo{" +
                 "name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", birthday='" + birthday + '\'' +
                 ", company='" + company + '\'' +
                 ", phoneNumber='" + phoneNumber +
                 "'}";
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

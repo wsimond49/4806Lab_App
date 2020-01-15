@@ -1,15 +1,40 @@
+package addressbook;
+
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.*;
 
+@Entity
 public class AddressBook {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<BuddyInfo> buddies;
 
     public AddressBook() {
         this.buddies = new ArrayList<BuddyInfo>();
     }
 
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void addBuddy(BuddyInfo buddy) {
         this.buddies.add(buddy);
+    }
+
+    public List<BuddyInfo> getBuddies() {
+        return this.buddies;
+    }
+
+    public void setBuddies(List<BuddyInfo> buddies) {
+        this.buddies = buddies;
     }
 
     public int getSize() {
@@ -18,7 +43,7 @@ public class AddressBook {
 
     @Override
     public String toString() {
-        return "AddressBook{" +
+        return "addressbook.AddressBook{" +
                 "buddies='" + this.buddies.toString() +
                 "'}";
     }
