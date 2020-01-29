@@ -1,51 +1,35 @@
 package access;
 
-import addressbook.BuddyInfo;
+import access.addressbook.AddressBook;
+import access.addressbook.BuddyInfo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @SpringBootApplication
-@EntityScan("addressbook")
 public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
     }
 
-
     @Bean
-    public CommandLineRunner demo(BuddyInfoRepository repository) {
+    public CommandLineRunner demo(AddressBookRepository repository) {
         return (args) -> {
-            // save a few BuddyInfos
-            repository.save(new BuddyInfo("Jack Bauer", "a", "b", "c", "d"));
-            repository.save(new BuddyInfo("Chloe O'Brian", "e", "f", "g", "h"));
-            repository.save(new BuddyInfo("Kim Bauer", "i", "j", "k", "l"));
-            repository.save(new BuddyInfo("David Palmer", "aa", "bb", "cc", "dd"));
-            repository.save(new BuddyInfo("MichelleDessler", "ab", "bc", "cd", "de"));
-
-            // fetch all BuddyInfos
-            System.out.println("BuddyInfos found with findAll():");
-            System.out.println("-------------------------------");
-            for (BuddyInfo buddy : repository.findAll()) {
-                System.out.println(buddy.toString());
-            }
-            System.out.println();
-
-            // fetch an individual BuddyInfo by ID
-            BuddyInfo BuddyInfo = repository.findById(2L);
-            System.out.println("BuddyInfo found with findById(2L):");
-            System.out.println("--------------------------------");
-            System.out.println(BuddyInfo.toString());
-            System.out.println();
-
-            // fetch BuddyInfos by last name
-            System.out.println("BuddyInfo found with findByName('Jack Bauer'):");
-            System.out.println("--------------------------------------------");
-            repository.findByName("Jack Bauer").forEach(bauer -> System.out.println(bauer.toString()));
-            System.out.println();
+            BuddyInfo info1 = new BuddyInfo("Jack Bauer", "a", "b", "c", "d");
+            BuddyInfo info2 = new BuddyInfo("Chloe O'Brian", "e", "f", "g", "h");
+            BuddyInfo info3 = new BuddyInfo("Kim Bauer", "i", "j", "k", "l");
+            BuddyInfo info4 = new BuddyInfo("David Palmer", "aa", "bb", "cc", "dd");
+            BuddyInfo info5 = new BuddyInfo("Michelle Dessler", "ab", "bc", "cd", "de");
+            AddressBook book = new AddressBook();
+            book.setBuddies(new ArrayList<BuddyInfo>(Arrays.asList(info1, info2, info3, info4, info5)));
+            repository.save(book);
         };
     }
+
 }

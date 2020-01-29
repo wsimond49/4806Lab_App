@@ -1,7 +1,9 @@
-package addressbook;
+package access.addressbook;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
+
 
 @Entity
 public class BuddyInfo {
@@ -34,7 +36,7 @@ public class BuddyInfo {
 
     @Override
     public String toString() {
-        return "addressbook.BuddyInfo{" +
+        return "access.addressbook.BuddyInfo{" +
                 "name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", birthday='" + birthday + '\'' +

@@ -1,4 +1,4 @@
-import addressbook.BuddyInfo;
+import access.addressbook.BuddyInfo;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -72,6 +72,6 @@ public class BuddyInfoTest {
     public void toStringBuddyTest() {
         BuddyInfo buddy = new BuddyInfo("Simon", "123 Main St.", "1/2/34", "Jo Co.", "1234567890");
 
-        assertEquals("addressbook.BuddyInfo{name='Simon', address='123 Main St.', birthday='1/2/34', company='Jo Co.', phoneNumber='1234567890'}", buddy.toString());
+        assertEquals("access.addressbook.BuddyInfo{name='Simon', address='123 Main St.', birthday='1/2/34', company='Jo Co.', phoneNumber='1234567890'}", buddy.toString());
     }
 }

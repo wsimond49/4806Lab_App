@@ -1,4 +1,4 @@
-import addressbook.BuddyInfo;
+import access.addressbook.BuddyInfo;
 
 import java.util.List;
 

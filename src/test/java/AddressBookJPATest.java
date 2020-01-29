@@ -1,5 +1,5 @@
-import addressbook.BuddyInfo;
-import addressbook.AddressBook;
+import access.addressbook.BuddyInfo;
+import access.addressbook.AddressBook;
 
 import java.util.List;
 

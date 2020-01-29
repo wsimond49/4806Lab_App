@@ -1,4 +1,4 @@
-package addressbook;
+package access.addressbook;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class AddressBook {
 
     @Override
     public String toString() {
-        return "addressbook.AddressBook{" +
+        return "access.addressbook.AddressBook{" +
                 "buddies='" + this.buddies.toString() +
                 "'}";
     }
