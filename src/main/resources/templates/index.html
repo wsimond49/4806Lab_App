@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Buddy</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="scripts/add_buddy.js"></script>
+</head>
+<body>
+    <h1 id="list">Buddy list</h1>
+    <table id="buddy_table">
+        <tr>
+            <th th:text="'Name'"/>
+            <th th:text="'Address'"/>
+            <th th:text="'Birthday'"/>
+            <th th:text="'Company'"/>
+            <th th:text="'Phone Number'"/>
+        </tr>
+        <tr th:each="buddy: ${buddies}">
+            <td th:text="${buddy.name}"/>
+            <td th:text="${buddy.address}"/>
+            <td th:text="${buddy.birthday}"/>
+            <td th:text="${buddy.company}"/>
+            <td th:text="${buddy.phoneNumber}"/>
+        </tr>
+    </table>
+    <h1 id="add_form">Add Buddy</h1>
+    <form action="/buddy/add" th:object="${buddy}" method="post">
+        <p>Name: <input id="name" type="text" th:field="*{name}" /></p>
+        <p>Address: <input id="address" type="text" th:field="*{address}" /></p>
+        <p>Birthday: <input id="birthday" type="text" th:field="*{birthday}" /></p>
+        <p>Company: <input id="company" type="text" th:field="*{company}" /></p>
+        <p>Phone Number: <input id="phone" type="text" th:field="*{phoneNumber}" /></p>
+        <p><input id="add_button" type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
